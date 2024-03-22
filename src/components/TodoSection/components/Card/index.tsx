@@ -11,7 +11,7 @@ export default function TodoCard({ title, illustrationSrc, buttonLabel }: IPrima
           {buttonLabel}
         </BaseButton>
       </div>
-      <img className="object-cover" src={illustrationSrc} alt={title} />
+      <img className="object-cover bg-white h-[150px]" src={illustrationSrc} alt={title} />
     </div>
   );
 }

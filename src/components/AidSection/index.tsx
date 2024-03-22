@@ -3,9 +3,9 @@ import Card from './components/Card';
 import { ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/24/solid';
 import { IAidSectionProps } from './types';
 
-export default function AidSection({ cards }: IAidSectionProps): ReactElement {
+export default function AidSection({ cards, loading }: IAidSectionProps): ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const [isScrolledToLeft, setIsScrolledToLeft] = useState(true);
   const [isScrolledToRight, setIsScrolledToRight] = useState(false);
 
@@ -31,11 +31,11 @@ export default function AidSection({ cards }: IAidSectionProps): ReactElement {
 
   return (
     <div className='md:px-6 flex flex-col gap-8 relative'>
-      <h1 className='px-4 md:p-0 font-semibold text-base leading-6 text-secondary'>
-        Les aides disponibles
-      </h1>
-      <div ref={containerRef} onScroll={checkScrollPosition} className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 overflow-auto w-full h-full pl-4 md:m-0 md:p-1 relative">
-        {cards.map((card) => (
+      <h1 className='px-4 md:p-0 font-semibold text-base leading-6 text-secondary'>Les aides disponibles</h1>
+      <div ref={containerRef} onScroll={checkScrollPosition} className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 overflow-auto w-full h-full px-4 md:m-0 md:p-1 relative">
+        {loading ? Array(3).fill(null).map((_, index) => (
+          <div key={index} className="animate-pulse w-full rounded-lg h-[200px] bg-gray-300" />
+        )) : cards.map((card) => (
           <Card
             key={card.id}
             title={card.title}

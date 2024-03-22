@@ -19,13 +19,9 @@ export default function Home(): ReactElement {
   const secondaryCards = cards.filter(card => card.type === 'secondary');
 
   return (
-    <div className='bg-tertiary py-[100px] md:p-[100px] flex flex-col gap-10 h-full w-full'>
-      {loading ? <p>Loading...</p> : (
-        <>
-          <TodoSection cards={primaryCards} />
-          <AidSection cards={secondaryCards} />
-        </>
-      )}
+    <div className='bg-tertiary pt-[100px] pb-10 md:p-[100px] flex flex-col gap-10 h-full w-full'>
+      <TodoSection cards={primaryCards} loading={loading} />
+      <AidSection cards={secondaryCards} loading={loading} />
     </div>
   );
 };
