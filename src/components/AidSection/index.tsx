@@ -31,7 +31,7 @@ export default function AidSection({ cards, loading }: IAidSectionProps): ReactE
 
   return (
     <div className='md:px-6 flex flex-col gap-8 relative'>
-      <h1 className='px-4 md:p-0 font-semibold text-base leading-6 text-secondary'>Les aides disponibles</h1>
+      <h1 className='px-4 md:p-0 font-semibold text-sm md:text-base leading-6 text-secondary'>Les aides disponibles</h1>
       <div ref={containerRef} onScroll={checkScrollPosition} className="flex gap-4 md:grid md:grid-cols-3 md:gap-4 overflow-auto w-full h-full px-4 md:m-0 md:p-1 relative">
         {loading ? Array(3).fill(null).map((_, index) => (
           <div key={index} className="animate-pulse w-full rounded-lg h-[200px] bg-gray-300" />
