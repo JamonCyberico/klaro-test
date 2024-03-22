@@ -1,8 +1,8 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import AidCarousel from '../../components/AidCarousel';
 import { ICardData } from '../../types';
 import { fetchCards } from '../../services/api';
 import TodoSection from '../../components/TodoSection';
+import AidSection from '../../components/AidSection';
 
 export default function Home(): ReactElement {
   const [cards, setCards] = useState<ICardData[]>([]);
@@ -19,11 +19,11 @@ export default function Home(): ReactElement {
   const secondaryCards = cards.filter(card => card.type === 'secondary');
 
   return (
-    <div className='bg-blue-100 px-[100px] flex flex-col gap-20 h-screen'>
+    <div className='bg-tertiary py-[100px] md:p-[100px] flex flex-col gap-10 h-full w-full'>
       {loading ? <p>Loading...</p> : (
         <>
           <TodoSection cards={primaryCards} />
-          <AidCarousel cards={secondaryCards} />
+          <AidSection cards={secondaryCards} />
         </>
       )}
     </div>

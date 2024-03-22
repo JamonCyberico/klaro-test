@@ -1,16 +1,12 @@
 import React, { ReactElement } from 'react';
 import Card from './components/Card';
-import { ICardData } from '../../types';
+import { ITodoSectionProps } from './types';
 
-interface AidCarouselProps {
-  cards: ICardData[];
-}
-
-export default function TodoSection({ cards }: AidCarouselProps): ReactElement {
+export default function TodoSection({ cards }: ITodoSectionProps): ReactElement {
   return (
-    <>
-      <h1>Bonjour Clément, voici ce que vous pouvez faire aujourd'hui!</h1>
-      <div className="flex flex-col gap-4 w-full">
+    <div className='px-4 md:px-6 flex flex-col gap-8'>
+      <h1 className='font-semibold text-base leading-6 text-secondary]'>Bonjour Anthony, voici ce que vous pouvez faire aujourd'hui!</h1>
+      <div className="flex flex-col gap-4 w-full px-1">
         {cards.map((card) => (
           <Card
             key={card.id}
@@ -20,6 +16,6 @@ export default function TodoSection({ cards }: AidCarouselProps): ReactElement {
           />
         ))}
       </div>
-    </>
+    </div>
   )
 }

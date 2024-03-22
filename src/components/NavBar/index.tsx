@@ -2,10 +2,10 @@ import React, { ReactElement } from 'react';
 
 export default function NavBar(): ReactElement {
   return (
-    <div className="flex w-full bg-blue-400 h-[60px] items-center justify-center">
-      <p className='text-white text-3xl'>
+    <div className="px-[100px] fixed w-full bg-primary h-[60px] flex items-center justify-center md:justify-start">
+      <a className='text-white text-3xl px-6' href='/'>
         Klaro
-      </p>
+      </a>
     </div>
   )
 }
